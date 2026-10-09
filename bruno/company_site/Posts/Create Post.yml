@@ -1,0 +1,39 @@
+info:
+  name: Create Post
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/admin/posts"
+  headers:
+    - name: Authorization
+      value: Bearer {{accessToken}}
+    - name: Accept
+      value: application/json
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "category_id": null,
+        "author_id": null,
+        "title": "Introduction to Laravel",
+        "slug": "introduction-to-laravel",
+        "cover": "posts/laravel/cover.jpg",
+        "thumbnail": "posts/laravel/thumbnail.jpg",
+        "content": "This is the content of the Laravel post.",
+        "status": 1,
+        "published_at": "2026-07-28 12:00:00",
+        "meta_title": "Introduction to Laravel",
+        "meta_description": "Learn the basic concepts of Laravel.",
+        "og_image": "posts/laravel/og-image.jpg"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

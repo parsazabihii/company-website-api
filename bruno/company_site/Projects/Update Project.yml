@@ -1,0 +1,28 @@
+info:
+  name: Update Project
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{base_url}}/api/admin/projects/1"
+  headers:
+    - name: Accept
+      value: application/json
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Updated Corporate Website",
+        "description": "Updated project description.",
+        "status": 1
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

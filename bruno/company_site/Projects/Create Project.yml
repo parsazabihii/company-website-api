@@ -1,0 +1,44 @@
+info:
+  name: Create Project
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/admin/projects"
+  headers:
+    - name: Accept
+      value: application/json
+    - name: Authorization
+      value: Bearer {{accessToken}}
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Corporate Website",
+        "slug": "corporate-website",
+        "thumbnail": "projects/corporate-website/thumbnail.jpg",
+        "description": "Design and development of a corporate website.",
+        "client_name": "Example Company",
+        "website": "https://example.com",
+        "meta_title": "Corporate Website Project",
+        "meta_description": "Corporate website design and development project.",
+        "og_image": "projects/corporate-website/og-image.jpg",
+        "status": 1
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: base_url
+      value: http://127.0.0.1:8080
+    - name: access_token
+      value: bmbGaOTHNUI5MuLGegd5gC44Fxyl4clVHcdGwAKh91c76237
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

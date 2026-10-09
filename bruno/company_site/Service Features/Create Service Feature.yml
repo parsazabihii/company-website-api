@@ -1,0 +1,38 @@
+info:
+  name: Create Service Feature
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/admin/services/4/features"
+  headers:
+    - name: Accept
+      value: application/json
+    - name: Content-Type
+      value: application/json
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Responsive Design",
+        "description": "Optimized for mobile, tablet and desktop devices.",
+        "icon": "monitor-smartphone",
+        "display_order": 1
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: base_url
+      value: http://127.0.0.1:8080
+    - name: access_token
+      value: bmbGaOTHNUI5MuLGegd5gC44Fxyl4clVHcdGwAKh91c76237
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

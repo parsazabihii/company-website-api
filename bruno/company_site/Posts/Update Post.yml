@@ -1,0 +1,33 @@
+info:
+  name: Update Post
+  type: http
+  seq: 3
+
+http:
+  method: PATCH
+  url: "{{base_url}}/api/admin/posts/1"
+  headers:
+    - name: Authorization
+      value: Bearer {{accessToken}}
+    - name: Accept
+      value: application/json
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Updated Introduction to Laravel",
+        "slug": "updated-introduction-to-laravel",
+        "content": "This is the updated content of the Laravel post.",
+        "status": 1,
+        "meta_title": "Updated Laravel Introduction",
+        "meta_description": "Updated description for the Laravel post."
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,41 @@
+info:
+  name: Create Service
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{base_url}}/api/admin/services"
+  headers:
+    - name: Accept
+      value: application/json
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Corporate Website Design Test",
+        "slug": "corporate-website-design-test",
+        "icon": "briefcase",
+        "short_description": "Professional corporate website development",
+        "description": "Complete corporate website design services",
+        "meta_title": "Corporate Website Design Test",
+        "meta_description": "Professional corporate website services",
+        "display_order": 1,
+        "status": "1"
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: base_url
+      value: http://127.0.0.1:8080
+    - name: access_token
+      value: bmbGaOTHNUI5MuLGegd5gC44Fxyl4clVHcdGwAKh91c76237
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

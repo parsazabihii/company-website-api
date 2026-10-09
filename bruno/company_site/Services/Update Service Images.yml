@@ -1,0 +1,37 @@
+info:
+  name: Update Service Images
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{base_url}}/api/admin/services/1"
+  headers:
+    - name: Accept
+      value: application/json
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  body:
+    type: multipart-form
+    data:
+      - name: _method
+        type: text
+        value: PATCH
+        contentType: Text
+      - name: image
+        type: file
+        value:
+          - C:\Users\ASUS\Pictures\5qldoa.jpg
+        contentType: image/jpeg
+      - name: og_image
+        type: file
+        value:
+          - C:\Users\ASUS\Pictures\5qiuc6.jpg
+        contentType: image/jpeg
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

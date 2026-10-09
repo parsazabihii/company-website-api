@@ -1,0 +1,30 @@
+info:
+  name: Update Service Feature
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{base_url}}/api/admin/services/4/features/1"
+  headers:
+    - name: Accept
+      value: " application/json"
+    - name: Content-Type
+      value: application/json
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Mobile Friendly Design",
+        "description": "Optimized for all screen sizes.",
+        "display_order": 2
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

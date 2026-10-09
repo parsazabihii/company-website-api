@@ -1,0 +1,8 @@
+name: company_site
+variables:
+  - name: base_url
+    value: http://127.0.0.1:8080
+  - name: accessToken
+    value: LaM0rSRdA9O7797dPxAI4zHehQ9z20Lrk1jYmGoF8d459c33
+  - name: refreshToken
+    value: gWu3eS9XWXaM00u23LcJh0XrxG20eOL8bgFannGSrfz5mp4jPAx0EA5uMhwEip1V

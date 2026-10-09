@@ -1,0 +1,37 @@
+info:
+  name: Create Permission
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/api/admin/roles"
+  headers:
+    - name: Accept
+      value: application/json
+    - name: Authorization
+      value: Bearer {{access_token}}
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Content Manager",
+        "slug": "content-manager",
+        "permission_ids": [1, 2]
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: base_url
+      value: http://127.0.0.1:8080
+    - name: access_token
+      value: bmbGaOTHNUI5MuLGegd5gC44Fxyl4clVHcdGwAKh91c76237
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

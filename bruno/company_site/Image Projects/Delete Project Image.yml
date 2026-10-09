@@ -1,0 +1,20 @@
+info:
+  name: Delete Project Image
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: "{{base_url}}/api/admin/projects/2/images/1"
+  headers:
+    - name: Accept
+      value: application/json
+    - name: Authorization
+      value: Bearer {{accessToken}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
